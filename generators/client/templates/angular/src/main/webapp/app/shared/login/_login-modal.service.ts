@@ -34,7 +34,7 @@ export class LoginModalService {
         }
         this.isOpen = true;
         const modalRef = this.modalService.open(<%=jhiPrefixCapitalized%>LoginModalComponent, {
-            container: 'nav'
+            container: 'md-toolbar'
         });
         modalRef.result.then((result) => {
             this.isOpen = false;

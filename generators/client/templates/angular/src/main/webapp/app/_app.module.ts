@@ -33,6 +33,13 @@ import { <%=angularXAppName%>EntityModule } from './entities/entity.module';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdToolbarModule} from '@angular/material';
+import {MdMenuModule} from '@angular/material';
+import {MdIconModule} from '@angular/material';
+import {MdButtonModule} from '@angular/material';
+import {MdTooltipModule} from '@angular/material';
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
 import {
@@ -58,6 +65,12 @@ import {
         <%=angularXAppName%>AdminModule,
         <%=angularXAppName%>AccountModule,
         <%=angularXAppName%>EntityModule,
+        BrowserAnimationsModule,
+        MdToolbarModule,
+        MdMenuModule,
+        MdIconModule,
+        MdButtonModule,
+        MdTooltipModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

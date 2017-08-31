@@ -94,12 +94,9 @@ module.exports = class extends PrivateBase {
                 jhipsterUtils.rewriteFile({
                     file: navbarPath,
                     needle: 'jhipster-needle-add-element-to-menu',
-                    splicable: [`<li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                                <a class="nav-link" routerLink="${routerName}" (click)="collapseNavbar()">
-                                    <i class="fa fa-${glyphiconName}"></i>&nbsp;
-                                    <span${enableTranslation ? ` jhiTranslate="global.menu.${routerName}"` : ''}>${_.startCase(routerName)}</span>
-                                </a>
-                            </li>`
+                    splicable: [`<button md-icon-button routerLink="${routerName}" mdTooltip="{{'global.menu.${routerName}' | translate}}">
+                                <md-icon>${glyphiconName}</md-icon>
+                            </button>`
                     ]
                 }, this);
             }
@@ -138,12 +135,10 @@ module.exports = class extends PrivateBase {
                 jhipsterUtils.rewriteFile({
                     file: navbarAdminPath,
                     needle: 'jhipster-needle-add-element-to-admin-menu',
-                    splicable: [`<li>
-                        <a class="dropdown-item" routerLink="${routerName}" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-${glyphiconName}" aria-hidden="true"></i>&nbsp;
-                            <span${enableTranslation ? ` jhiTranslate="global.menu.admin.${routerName}"` : ''}>${_.startCase(routerName)}</span>
-                        </a>
-                    </li>`
+                    splicable: [`<button md-menu-item routerLink="${routerName}">
+                        <md-icon>${glyphiconName}</md-icon>
+                        <span${enableTranslation ? ` jhiTranslate="global.menu.admin.${routerName}"` : ''}>${_.startCase(routerName)}</span>
+                    </button>`
                     ]
                 }, this);
             }
@@ -202,12 +197,10 @@ module.exports = class extends PrivateBase {
                     needle: 'jhipster-needle-add-entity-to-menu',
                     splicable: [
                         this.stripMargin(
-                            `|<li>
-                             |                        <a class="dropdown-item" routerLink="${routerName}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                             |                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                             |                            <span${enableTranslation ? ` jhiTranslate="global.menu.entities.${_.camelCase(routerName)}"` : ''}>${_.startCase(routerName)}</span>
-                             |                        </a>
-                             |                    </li>`
+                            `|<button md-menu-item routerLink="${routerName}">
+                             |            <md-icon>ac_unit</md-icon>
+                             |            <span${enableTranslation ? ` jhiTranslate="global.menu.entities.${routerName}"` : ''}>${_.startCase(routerName)}</span>
+                             |        </button>`
                         )
                     ]
                 }, this);
